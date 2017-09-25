@@ -55,12 +55,12 @@ class ViewController: UIViewController {
             let currentPoint = touch.location(in: self.view)
             
             drawOnDrawingPad(originalPoint: zeroPoint, toPoint: currentPoint)
-            
             zeroPoint = currentPoint
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         if self.userTouched == false {
             drawOnDrawingPad(originalPoint: zeroPoint, toPoint: zeroPoint)
         }
