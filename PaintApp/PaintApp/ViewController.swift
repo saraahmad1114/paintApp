@@ -16,6 +16,11 @@ class ViewController: UIViewController {
     
     var userTouched = false
     
+    var red: CGFloat = 0.0
+    var blue: CGFloat = 0.0
+    var green: CGFloat = 0.0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -40,7 +45,7 @@ class ViewController: UIViewController {
         context?.setBlendMode(CGBlendMode.normal)
         context?.setLineCap(CGLineCap.round)
         context?.setLineWidth(8)
-        context?.setStrokeColor(UIColor.black.cgColor)
+        context?.setStrokeColor(UIColor(red: self.red, green: self.green, blue: self.blue, alpha: 1.0).cgColor)
         context?.strokePath()
         
         self.drawingPad.image = UIGraphicsGetImageFromCurrentImageContext()
@@ -68,6 +73,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func clearDrawingPad(_ sender: Any) {
+        self.drawingPad.image = nil 
     }
 
     @IBAction func colorTapped(_ sender: UIButton) {
