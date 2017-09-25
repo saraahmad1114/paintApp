@@ -38,20 +38,24 @@ class ViewController: UIViewController {
         context?.setBlendMode(CGBlendMode.normal)
         context?.setLineCap(CGLineCap.round)
         context?.setLineWidth(8)
-        //context?.setStrokeColor(UIColor(red: 0, green: 0, blue: 0, alpha: 1.0))
-        var colorNeeded = UIColor.black
-        
-        context?.setStroke(UIColor.black)
-        
+        context?.setStrokeColor(UIColor.black.cgColor)
         context?.strokePath()
         
-        
         self.drawingPad.image = UIGraphicsGetImageFromCurrentImageContext()
-        
         UIGraphicsEndImageContext()
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first{
+            var currentPoint = touch.location(in: self.view)
+            
+            drawOnDrawingPad(originalPoint: lastPoint, toPoint: currentPoint)
+            
+            lastPoint = currentPoint
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         <#code#>
     }
 
