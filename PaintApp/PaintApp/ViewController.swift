@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var drawingPad: UIImageView!
     
-    var lastPoint = CGPoint.zero
+    var zeroPoint = CGPoint.zero
     
     var userTouched = false
     
@@ -22,8 +22,10 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.userTouched = false 
+        
         if let touch = touches.first{
-            self.lastPoint = touch.location(in: self.view)
+            self.zeroPoint = touch.location(in: self.view)
         }
     }
     
@@ -46,17 +48,22 @@ class ViewController: UIViewController {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.userTouched = true
+        
         if let touch = touches.first{
             var currentPoint = touch.location(in: self.view)
             
-            drawOnDrawingPad(originalPoint: lastPoint, toPoint: currentPoint)
+            drawOnDrawingPad(originalPoint: zeroPoint, toPoint: currentPoint)
             
-            lastPoint = currentPoint
+            zeroPoint = currentPoint
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        <#code#>
+        if self.userTouched == false {
+            drawOnDrawingPad(originalPoint: zeroPoint, toPoint: zeroPoint)
+        }
     }
 
     override func didReceiveMemoryWarning() {
