@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.userTouched = false 
+        self.userTouched = false
         
         if let touch = touches.first{
             self.zeroPoint = touch.location(in: self.view)
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     func drawOnDrawingPad (originalPoint: CGPoint, toPoint: CGPoint) {
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.drawingPad.image?.draw(in: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-        var context = UIGraphicsGetCurrentContext()
+        let context = UIGraphicsGetCurrentContext()
         
         context?.move(to: CGPoint(x: originalPoint.x, y: originalPoint.y))
         context?.addLine(to: CGPoint(x: toPoint.x, y: toPoint.y))
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         self.userTouched = true
         
         if let touch = touches.first{
-            var currentPoint = touch.location(in: self.view)
+            let currentPoint = touch.location(in: self.view)
             
             drawOnDrawingPad(originalPoint: zeroPoint, toPoint: currentPoint)
             
