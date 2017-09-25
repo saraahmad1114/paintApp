@@ -65,7 +65,14 @@ class ViewController: UIViewController {
             drawOnDrawingPad(originalPoint: zeroPoint, toPoint: zeroPoint)
         }
     }
+    
+    
+    @IBAction func clearDrawingPad(_ sender: Any) {
+    }
 
+    @IBAction func colorTapped(_ sender: UIButton) {
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
