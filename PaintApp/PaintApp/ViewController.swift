@@ -28,7 +28,6 @@ class ViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.userTouched = false
-        
         if let touch = touches.first{
             self.zeroPoint = touch.location(in: self.view)
         }
@@ -58,7 +57,6 @@ class ViewController: UIViewController {
         
         if let touch = touches.first{
             let currentPoint = touch.location(in: self.view)
-            
             drawOnDrawingPad(originalPoint: zeroPoint, toPoint: currentPoint)
             zeroPoint = currentPoint
         }
@@ -77,32 +75,36 @@ class ViewController: UIViewController {
     }
 
     @IBAction func colorTapped(_ sender: UIButton) {
-        if sender.tag  == 0 {
-            (self.red, self.green, self.blue) = (1, 0, 0 )
-        }
-        else if sender.tag == 1{
+        
+        switch sender.tag {
+        case 0:
+            (self.red, self.green, self.blue) = (1, 0, 0)
+            
+        case 1:
             (self.red, self.green, self.blue) = (0, 1, 0)
-        }
-        
-        else if sender.tag == 2 {
+            
+        case 2:
             (self.red, self.green, self.blue) = (0, 0, 1)
-        }
-        else if sender.tag == 3 {
-            (self.red, self.green, self.blue) = (1, 0, 1)
-        }
-        else if sender.tag == 4 {
+            
+        case 3:
+             (self.red, self.green, self.blue) = (1, 0, 1)
+            
+        case 4:
             (self.red, self.green, self.blue) = (1, 1, 0)
-        }
-        else if sender.tag == 5 {
+            
+        case 5:
             (self.red, self.green, self.blue) = (0, 1, 1)
-        }
-        else if sender.tag == 6 {
+            
+        case 6:
             (self.red, self.green, self.blue) = (1, 1, 1)
-        }
-        else if sender.tag == 7 {
+            
+        case 7:
             (self.red, self.green, self.blue) = (0, 0, 0)
-        }
         
+        default:
+            print("You didn't select a color")
+        }
+
         
     }
     override func didReceiveMemoryWarning() {

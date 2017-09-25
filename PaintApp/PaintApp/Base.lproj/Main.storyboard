@@ -54,6 +54,9 @@
                                 <state key="normal" title="Yellow">
                                     <color key="titleColor" red="1" green="0.98153398427675786" blue="0.24491230733413794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="colorTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Chc-jB-vWa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKc-pq-PXo">
                                 <rect key="frame" x="156" y="550" width="41" height="36"/>
