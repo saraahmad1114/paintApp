@@ -73,10 +73,36 @@ class ViewController: UIViewController {
     
     
     @IBAction func clearDrawingPad(_ sender: Any) {
-        self.drawingPad.image = nil 
+        self.drawingPad.image = nil
     }
 
     @IBAction func colorTapped(_ sender: UIButton) {
+        if sender.tag  == 0 {
+            (self.red, self.green, self.blue) = (1, 0, 0 )
+        }
+        else if sender.tag == 1{
+            (self.red, self.green, self.blue) = (0, 1, 0)
+        }
+        
+        else if sender.tag == 2 {
+            (self.red, self.green, self.blue) = (0, 0, 1)
+        }
+        else if sender.tag == 3 {
+            (self.red, self.green, self.blue) = (1, 0, 1)
+        }
+        else if sender.tag == 4 {
+            (self.red, self.green, self.blue) = (1, 1, 0)
+        }
+        else if sender.tag == 5 {
+            (self.red, self.green, self.blue) = (0, 1, 1)
+        }
+        else if sender.tag == 6 {
+            (self.red, self.green, self.blue) = (1, 1, 1)
+        }
+        else if sender.tag == 7 {
+            (self.red, self.green, self.blue) = (0, 0, 0)
+        }
+        
         
     }
     override func didReceiveMemoryWarning() {
